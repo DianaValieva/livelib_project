@@ -2,8 +2,15 @@ from src.api.request import send_post_request
 from src.api.schemas import login_schema
 from jsonschema import validate
 from src.common.settings import USER_ID, config
+import allure
+from allure import severity.
 
 
+@allure.label("owner", "didarphin")
+@allure.feature("Check successfull login")
+@allure.label('microservice', 'API')
+@allure.severity(severity_level=allure.severity_level.BLOCKER)
+@allure.label('layer', 'api')
 def test_successfull_login():
     url = "/account/login"
     data_for_login = "user%5Bredirect%5D=&" \
@@ -22,7 +29,11 @@ def test_successfull_login():
     validate(response.json(), schema=login_schema)
     assert response.json()["object"]["user_id"] == USER_ID
 
-
+@allure.label("owner", "didarphin")
+@allure.feature("Check unsuccessfull login")
+@allure.label('microservice', 'API')
+@allure.severity(severity_level=allure.severity_level.CRITICAL)
+@allure.label('layer', 'api')
 def test_unsuccessfull_login():
     url = "/account/login"
     data_for_login = "user%5Bredirect%5D=&" \

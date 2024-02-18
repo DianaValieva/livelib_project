@@ -3,9 +3,14 @@ import pytest
 from src.api.request import send_post_request
 from src.api.schemas import save_book_schema
 from jsonschema import validate
-from src.common.settings import USER_ID, config
+from src.common.settings import config
+import allure
 
-
+@allure.label("owner", "didarphin")
+@allure.feature("Check save book")
+@allure.label('microservice', 'API')
+@allure.severity(severity_level=allure.severity_level.CRITICAL)
+@allure.label('layer', 'api')
 def test_savebook():
     login_url = "/account/login"
     data_for_login = "user%5Bredirect%5D=&" \
@@ -50,7 +55,11 @@ def test_savebook():
     assert response.json()["ub_id"] == book_id
     assert response.json()["text"] == "Прочитала"
 
-
+@allure.label("owner", "didarphin")
+@allure.feature("Check change status for a book")
+@allure.label('microservice', 'API')
+@allure.severity(severity_level=allure.severity_level.CRITICAL)
+@allure.label('layer', 'api')
 @pytest.mark.parametrize("status_code, status", [(0, "Хочу прочитать"), (1, "Прочитала"), (3, "Не дочитала")])
 def test_change_status_for_book(status_code, status):
     login_url = "/account/login"
