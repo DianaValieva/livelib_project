@@ -3,8 +3,6 @@ from src.api.schemas import login_schema
 from jsonschema import validate
 from src.common.settings import USER_ID, config
 import allure
-from allure import severity.
-
 
 @allure.label("owner", "didarphin")
 @allure.feature("Check successfull login")
