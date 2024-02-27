@@ -1,4 +1,4 @@
-from livelib_project.pages.web.search import SearchPage
+from livelib_project.pages.web.search_page import SearchPage
 import allure
 @allure.label("owner", "didarphin")
 @allure.feature("Check search book")
