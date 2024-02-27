@@ -1,9 +1,9 @@
 import pytest
 
-from src.api.request import send_post_request
-from src.api.schemas import save_book_schema
+from livelib_project.utils.request import send_post_request
+from livelib_project.schemas.schemas import save_book_schema
 from jsonschema import validate
-from src.common.settings import config
+from settings import config
 import allure
 
 @allure.label("owner", "didarphin")

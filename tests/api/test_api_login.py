@@ -1,7 +1,7 @@
-from src.api.request import send_post_request
-from src.api.schemas import login_schema
+from livelib_project.utils.request import send_post_request
+from livelib_project.schemas.schemas import login_schema
 from jsonschema import validate
-from src.common.settings import USER_ID, config
+from settings import USER_ID, config
 import allure
 
 @allure.label("owner", "didarphin")
