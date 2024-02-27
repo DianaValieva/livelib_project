@@ -3,6 +3,7 @@ from selene import browser
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from settings import config
 
 
 @pytest.fixture(scope="function", autouse=True)
@@ -19,7 +20,7 @@ def set_browser():
     options.capabilities.update(selenoid_capabilities)
 
     driver = webdriver.Remote(
-        command_executor=f"https://user1:1234@selenoid.autotests.cloud/wd/hub",
+        command_executor=f"https://{config.selenoid_login}:{config.selenoid_pass}@selenoid.autotests.cloud/wd/hub",
         options=options,
     )
 

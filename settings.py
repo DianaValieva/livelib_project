@@ -9,5 +9,8 @@ class Config(pydantic.BaseModel):
     load_dotenv()
     login: str = os.environ.get('USER')
     password: str = os.environ.get('PASSWORD')
+    selenoid_login = os.environ.get("S_USER")
+    selenoid_pass = os.environ.get("S_PASSWORD")
+
 
 config = Config()
