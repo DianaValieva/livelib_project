@@ -3,7 +3,9 @@ from livelib_project.utils.request import authorise_and_get_cookies
 import allure
 from selene import browser
 import random
+
 chalenge_page = ChallengePage()
+
 
 @allure.label("owner", "didarphin")
 @allure.feature("Check changing challenge amount")
@@ -13,7 +15,7 @@ chalenge_page = ChallengePage()
 @allure.tag("web")
 def test_change_challenge_amount():
     chalenge_page.open_main_page()
-    authorise_and_get_cookies(browser)
+    authorise_and_get_cookies()
 
     chalenge_page.open_challenge_page()
     chalenge_page.click_edit_btn()

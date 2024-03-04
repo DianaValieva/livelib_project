@@ -1,7 +1,7 @@
-
 from selene import browser, by, have
 from settings import BASE_URL
 import allure
+
 
 class SearchPage:
     @allure.step("Open main auth_page")

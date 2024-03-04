@@ -1,6 +1,7 @@
-from selene import browser,  have
+from selene import browser, have
 from settings import BASE_URL
 import allure
+
 
 class MessagePage:
     @allure.step("Open main auth_page")
@@ -10,17 +11,17 @@ class MessagePage:
 
     @allure.step("Open outcoming messages")
     def open_outcoming_messages(self):
-        browser.open(BASE_URL+"/messages/out")
+        browser.open(BASE_URL + "/messages/out")
         return self
 
     @allure.step("Open new message auth_page")
     def open_new_message_page(self):
-        browser.open(BASE_URL+"/message/send")
+        browser.open(BASE_URL + "/message/send")
         return self
 
     @allure.step("Open incoming messages")
     def open_incoming_messages(self):
-        browser.open(BASE_URL+"/messages/in")
+        browser.open(BASE_URL + "/messages/in")
         return self
 
     @allure.step("Agree cookies")
@@ -47,6 +48,3 @@ class MessagePage:
     @allure.step("Find message text")
     def find_message_text(self, message):
         browser.all(".total-text")[0].should(have.text(message))
-
-
-

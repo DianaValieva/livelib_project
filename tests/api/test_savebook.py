@@ -5,11 +5,13 @@ from livelib_project.schemas.schemas import save_book_schema
 from jsonschema import validate
 from settings import config
 import allure
+
 status_mapping = {
     "Want to read": "Книга добавлена в коллекцию со статусом \"Хочу прочитать\"",
     "Read": "Книга добавлена в коллекцию со статусом \"Прочитала\"",
     "Did not finish reading": "Книга добавлена в коллекцию со статусом \"Не дочитала\""
 }
+
 
 @allure.label("owner", "didarphin")
 @allure.feature("Check change status for a book")
@@ -39,7 +41,7 @@ def test_change_status_for_book(status_code, status):
     response = send_post_request(url, data=book_data, headers=header, cookies=cookies)
 
     assert response.status_code == 200
-    s=response.json()
+    s = response.json()
     validate(response.json(), schema=save_book_schema)
     assert response.json()["userbook_id"] == book_id
     assert response.json()["text"] == status_mapping[status]

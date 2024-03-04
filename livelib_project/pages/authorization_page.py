@@ -31,10 +31,9 @@ class AuthPage:
     @allure.step("Check unsuccess login")
     def check_incorrect_pass_label(self):
         browser.element("#reg-popup__unvalid").should(have.
-            text("Пользователь с указанными логином и паролем не найден"))
+                                                      text("Пользователь с указанными логином и паролем не найден"))
 
     @allure.step("Check unsuccess logi n")
     def check_incorrect_login_label(self):
         browser.element("#check-email-nicname-popup__unvalid").should(
             have.text("Никнейм не найден!"))
-

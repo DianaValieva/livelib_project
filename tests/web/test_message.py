@@ -2,7 +2,9 @@ from livelib_project.pages.message_page import MessagePage
 from livelib_project.utils.request import authorise_and_get_cookies
 import allure
 from selene import browser
+
 message_page = MessagePage()
+
 
 @allure.label("owner", "didarphin")
 @allure.feature("Check sending message")

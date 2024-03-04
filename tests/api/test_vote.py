@@ -6,6 +6,7 @@ from jsonschema import validate
 from settings import config
 import allure
 
+
 @allure.label("owner", "didarphin")
 @allure.feature("Check vote for diffetent objects")
 @allure.label('microservice', 'API')

@@ -4,7 +4,8 @@ import curlify
 import logging
 from allure_commons.types import AttachmentType
 from settings import BASE_URL, config
-from livelib_project.utils.logger import log
+from livelib_project.utils.logger import log, attach
+from selene import browser
 
 
 def send_post_request(url, **kwargs):
@@ -14,9 +15,11 @@ def send_post_request(url, **kwargs):
         curl = curlify.to_curl(response.request)
         allure.attach(body=curl, name="curl", attachment_type=AttachmentType.TEXT, extension="txt")
         log(response)
+        attach(response)
         return response
 
-def authorise_and_get_cookies(browser):
+
+def authorise_and_get_cookies():
     url = "/account/login"
     data_for_login = "user%5Bredirect%5D=&" \
                      "user%5Bonclick%5D=&" \
@@ -29,13 +32,7 @@ def authorise_and_get_cookies(browser):
     header = {"x-requested-with": "XMLHttpRequest"}
     response = send_post_request(url, data=data_for_login, headers=header)
 
-    cookies = {
-        "LiveLibId" : response.cookies.get("LiveLibId"),
-        "ll_asid" : response.cookies.get("ll_asid"),
-        "llsid" : response.cookies.get("llsid")
-    }
+    cookies = response.cookies.get_dict()
 
-    browser.driver.add_cookie({"name": "LiveLibId", "value": cookies["LiveLibId"]}),
-    browser.driver.add_cookie({"name": "ll_asid", "value": cookies["ll_asid"]}),
-    browser.driver.add_cookie({"name": "llsid", "value": cookies["llsid"]}),
-
+    for name, cookie in cookies.items():
+        browser.driver.add_cookie({'name': name, 'value': cookie})

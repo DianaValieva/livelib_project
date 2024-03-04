@@ -4,6 +4,7 @@ import allure
 
 auth_page = AuthPage()
 
+
 @allure.label("owner", "didarphin")
 @allure.feature("Check success login")
 @allure.label('microservice', 'WEB')
@@ -17,6 +18,7 @@ def test_success_auth():
     auth_page.enter_password(config.password)
     auth_page.check_success_auth()
 
+
 @allure.label("owner", "didarphin")
 @allure.feature("Check login with incorrect password")
 @allure.label('microservice', 'WEB')
@@ -29,6 +31,7 @@ def test_incorrect_password():
     auth_page.enter_login(config.login)
     auth_page.enter_password("123")
     auth_page.check_incorrect_pass_label()
+
 
 @allure.label("owner", "didarphin")
 @allure.feature("Check login with incorrect login")
