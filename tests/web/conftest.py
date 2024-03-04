@@ -8,23 +8,23 @@ from settings import config, BASE_URL
 
 @pytest.fixture(scope="function", autouse=True)
 def set_browser():
-    #options = Options()
-    #selenoid_capabilities = {
-    #    "browserName": "chrome",
-    #    "browserVersion": "100.0",
-    #    "selenoid:options": {
-    #        "enableVNC": True,
-    #        "enableVideo": True
-    #    },
-    #}
-    #options.capabilities.update(selenoid_capabilities)
+    options = Options()
+    selenoid_capabilities = {
+        "browserName": "chrome",
+        "browserVersion": "100.0",
+        "selenoid:options": {
+            "enableVNC": True,
+            "enableVideo": True
+        },
+    }
+    options.capabilities.update(selenoid_capabilities)
 
-    #driver = webdriver.Remote(
-    #    command_executor=f"https://{config.selenoid_login}:{config.selenoid_pass}@selenoid.autotests.cloud/wd/hub",
-    #    options=options,
-    #)
+    driver = webdriver.Remote(
+        command_executor=f"https://{config.selenoid_login}:{config.selenoid_pass}@selenoid.autotests.cloud/wd/hub",
+        options=options,
+    )
 
-    #browser.config.driver = driver
+    browser.config.driver = driver
     browser.config.base_url = BASE_URL
     browser.config.window_width = 1920
     browser.config.window_height = 1080
