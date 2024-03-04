@@ -10,6 +10,7 @@ chalenge_page = ChallengePage()
 @allure.label('microservice', 'WEB')
 @allure.severity(severity_level=allure.severity_level.NORMAL)
 @allure.label('layer', 'web')
+@allure.tag("web")
 def test_change_challenge_amount():
     chalenge_page.open_main_page()
     authorise_and_get_cookies(browser)

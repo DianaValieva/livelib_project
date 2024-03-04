@@ -9,6 +9,7 @@ auth_page = AuthPage()
 @allure.label('microservice', 'WEB')
 @allure.severity(severity_level=allure.severity_level.BLOCKER)
 @allure.label('layer', 'web')
+@allure.tag("web")
 def test_success_auth():
     auth_page.open_main_page()
     auth_page.open_auth()
@@ -21,6 +22,7 @@ def test_success_auth():
 @allure.label('microservice', 'WEB')
 @allure.severity(severity_level=allure.severity_level.NORMAL)
 @allure.label('layer', 'web')
+@allure.tag("web")
 def test_incorrect_password():
     auth_page.open_main_page()
     auth_page.open_auth()

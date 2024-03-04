@@ -16,6 +16,7 @@ status_mapping = {
 @allure.label('microservice', 'API')
 @allure.severity(severity_level=allure.severity_level.CRITICAL)
 @allure.label('layer', 'api')
+@allure.tag("api")
 @pytest.mark.parametrize("status_code, status", [(0, "Want to read"), (1, "Read"), (3, "Did not finish reading")])
 def test_change_status_for_book(status_code, status):
     login_url = "/account/login"

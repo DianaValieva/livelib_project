@@ -10,6 +10,7 @@ import allure
 @allure.label('microservice', 'API')
 @allure.severity(severity_level=allure.severity_level.BLOCKER)
 @allure.label('layer', 'api')
+@allure.tag("api")
 def test_successfull_login():
     url = "/account/login"
     data_for_login = f"user%5Blogin%5D={config.login}&" \
@@ -28,6 +29,7 @@ def test_successfull_login():
 @allure.label('microservice', 'API')
 @allure.severity(severity_level=allure.severity_level.CRITICAL)
 @allure.label('layer', 'api')
+@allure.tag("api")
 def test_unsuccessfull_login():
     url = "/account/login"
     data_for_login = f"user%5Blogin%5D={config.login}&" \

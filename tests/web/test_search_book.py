@@ -7,6 +7,7 @@ search_page = SearchPage()
 @allure.label('microservice', 'WEB')
 @allure.severity(severity_level=allure.severity_level.CRITICAL)
 @allure.label('layer', 'web')
+@allure.tag("web")
 def test_success_search():
     search_page.open_main_page()
 
@@ -18,6 +19,7 @@ def test_success_search():
 @allure.label('microservice', 'WEB')
 @allure.severity(severity_level=allure.severity_level.MINOR)
 @allure.label('layer', 'web')
+@allure.tag("web")
 def test_unsuccess_search():
     search_page.open_main_page()
 

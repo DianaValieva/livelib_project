@@ -9,6 +9,7 @@ message_page = MessagePage()
 @allure.label('microservice', 'WEB')
 @allure.severity(severity_level=allure.severity_level.NORMAL)
 @allure.label('layer', 'web')
+@allure.tag("web")
 def test_send_message():
     message_page.open_main_page()
     authorise_and_get_cookies(browser)
@@ -28,6 +29,7 @@ def test_send_message():
 @allure.label('microservice', 'WEB')
 @allure.severity(severity_level=allure.severity_level.NORMAL)
 @allure.label('layer', 'web')
+@allure.tag("web")
 def test_find_incoming_message():
     message_page.open_main_page()
 

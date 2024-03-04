@@ -11,6 +11,7 @@ import allure
 @allure.label('microservice', 'API')
 @allure.severity(severity_level=allure.severity_level.CRITICAL)
 @allure.label('layer', 'api')
+@allure.tag("api")
 @pytest.mark.parametrize("vote, object_id, object_type", [(0, 4029199, "review"), (1, 14443822, "comment")])
 def test_vote(vote, object_id, object_type):
     login_url = "/account/login"
