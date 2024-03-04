@@ -4,7 +4,7 @@ from settings import BASE_URL
 import allure
 
 class SearchPage:
-    @allure.step("Open main page")
+    @allure.step("Open main auth_page")
     def open_main_page(self):
         browser.open(BASE_URL)
         return self

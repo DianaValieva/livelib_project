@@ -4,6 +4,8 @@ import curlify
 import logging
 from allure_commons.types import AttachmentType
 from settings import BASE_URL, config
+from livelib_project.utils.logger import log
+
 
 def send_post_request(url, **kwargs):
     url = BASE_URL + url
@@ -11,10 +13,10 @@ def send_post_request(url, **kwargs):
         response = requests.post(url, **kwargs)
         curl = curlify.to_curl(response.request)
         allure.attach(body=curl, name="curl", attachment_type=AttachmentType.TEXT, extension="txt")
-        logging.info(curlify.to_curl(response.request))
+        log(response)
         return response
 
-def authorise_and_get_cookies():
+def authorise_and_get_cookies(browser):
     url = "/account/login"
     data_for_login = "user%5Bredirect%5D=&" \
                      "user%5Bonclick%5D=&" \
@@ -33,4 +35,7 @@ def authorise_and_get_cookies():
         "llsid" : response.cookies.get("llsid")
     }
 
-    return cookies
+    browser.driver.add_cookie({"name": "LiveLibId", "value": cookies["LiveLibId"]}),
+    browser.driver.add_cookie({"name": "ll_asid", "value": cookies["ll_asid"]}),
+    browser.driver.add_cookie({"name": "llsid", "value": cookies["llsid"]}),
+

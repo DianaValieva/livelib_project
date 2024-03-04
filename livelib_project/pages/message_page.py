@@ -3,7 +3,7 @@ from settings import BASE_URL
 import allure
 
 class MessagePage:
-    @allure.step("Open main page")
+    @allure.step("Open main auth_page")
     def open_main_page(self):
         browser.open(BASE_URL)
         return self
@@ -13,7 +13,7 @@ class MessagePage:
         browser.open(BASE_URL+"/messages/out")
         return self
 
-    @allure.step("Open new message page")
+    @allure.step("Open new message auth_page")
     def open_new_message_page(self):
         browser.open(BASE_URL+"/message/send")
         return self

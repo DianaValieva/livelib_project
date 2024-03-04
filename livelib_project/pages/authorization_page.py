@@ -4,14 +4,14 @@ import allure
 
 
 class AuthPage:
-    @allure.step("Open main page")
+    @allure.step("Open main auth_page")
     def open_main_page(self):
         browser.open(BASE_URL)
         return self
 
     @allure.step("Open auth form")
     def open_auth(self):
-        browser.element(".page-header__login").click()
+        browser.element(".auth_page-header__login").click()
 
     @allure.step("Enter login")
     def enter_login(self, login):

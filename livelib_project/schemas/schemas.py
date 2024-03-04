@@ -75,30 +75,47 @@ login_schema = {
   ]
 }
 
+unsucessful_login_schema={
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "error_code": {
+      "type": "integer"
+    },
+    "message": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "error_code",
+    "message"
+  ]
+}
+
 save_book_schema = {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
+    "error_code": {
+      "type": "integer"
+    },
+    "button": {
+      "type": "string"
+    },
     "content": {
       "type": "string"
     },
-    "ub_id": {
+    "content_add": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "book_id": {
       "type": "integer"
     },
-    "new_book": {
-      "type": "string"
-    },
-    "ab_action": {
-      "type": "string"
-    },
-    "ub_rating": {
-      "type": "string"
-    },
-    "read_again": {
-      "type": "boolean"
-    },
-    "is_new": {
-      "type": "boolean"
+    "userbook_id": {
+      "type": "integer"
     },
     "count_books_wish": {
       "type": "integer"
@@ -109,25 +126,46 @@ save_book_schema = {
     "booksmenu_wish": {
       "type": "string"
     },
-    "text": {
+    "bookmark_status": {
       "type": "string"
     },
-    "bookmark_status": {
+    "book_read": {
+      "type": "integer"
+    },
+    "date_field": {
       "type": "string"
     }
   },
   "required": [
+    "error_code",
+    "button",
     "content",
-    "ub_id",
-    "new_book",
-    "ab_action",
-    "ub_rating",
-    "read_again",
-    "is_new",
+    "content_add",
+    "text",
+    "book_id",
+    "userbook_id",
     "count_books_wish",
     "count_books_read",
     "booksmenu_wish",
-    "text",
-    "bookmark_status"
+    "bookmark_status",
+    "book_read",
+    "date_field"
+  ]
+}
+
+vote_schema ={
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "object_id": {
+      "type": "integer"
+    },
+    "object_alias": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "object_id",
+    "object_alias"
   ]
 }
