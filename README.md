@@ -73,4 +73,4 @@ allure serve allure-results
 ![This is an image](/resources/screenshots/allure_test_cases.png)
 
 ### Настроено автоматическое оповещение о результатах сборки Jenkins в Telegram-бот
-![THERE WILL BE TELEGRAM IMAGE]()
+![THERE WILL BE TELEGRAM IMAGE](/resources/screenshots/telegram_message.png)
