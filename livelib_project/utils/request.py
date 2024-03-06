@@ -1,7 +1,6 @@
 import requests
 import allure
 import curlify
-import logging
 from allure_commons.types import AttachmentType
 from settings import BASE_URL, config
 from livelib_project.utils.logger import log, attach
